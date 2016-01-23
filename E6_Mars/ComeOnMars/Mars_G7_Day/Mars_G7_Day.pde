@@ -46,8 +46,5 @@ ellipse(480, 480, 15, 15);
     }
   }*/
   
-  //save("diagonal.jpg");
+  save("G7_01.png");
 }
-
-
-
