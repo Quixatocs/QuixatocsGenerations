@@ -1,7 +1,6 @@
 //Mars Picture 4
 
-int y1 = 150;
-int y2 = 550;
+int y1 = 80;
 float[] summitPoints1;
 float[] summitPoints2;
 
@@ -11,33 +10,36 @@ smooth();
 background(225, 205, 205);
 noStroke();
   
-  summitPoints1 = new float[width*2];
-  summitPoints2 = new float[width*2];
+  summitPoints1 = new float[width];
+  summitPoints2 = new float[width];
   
   createSummitPoints1Array();
-  drawBackgroundRidge();
-  drawRidgeWave(1, -15, 35, 2, 155);
-  //drawForegroundRidge();
-  drawRidgeWave(2, -45, 25, 12, 55);
-  //drawForegroundRidgeWave(2, -35, 25, 0, width*2, 4);
+  //drawBackgroundRidge();
+  drawRidgeWave(-35, 25, 0, width, 4);
   
-   //<>// //<>//
+   //<>//
   
-  saveMe();
+  //saveMe();
 }
 
 
 void createSummitPoints1Array() {
   //Define the summit points in an array
-  for (int i = 0; i < width*2; i++) {
+  for (int i = 0; i < width; i++) {
     if (i % 5 == 0) {
       y1 += random(-5.5, +5.5);
     }
-    if (i % 12 == 0) {
-      y2 += random(-12.5, +12.5);
+    summitPoints1[i] = y1; 
+  }
+}
+
+void createSummitPoints2Array() {
+  //Define the summit points in an array
+  for (int i = 0; i < width; i++) {
+    if (i % 5 == 0) {
+      y1 += random(-5.5, +5.5);
     }
-    summitPoints1[i] = y1;
-    summitPoints2[i] = y2; 
+    summitPoints2[i] = y1; 
   }
 }
 
@@ -49,36 +51,21 @@ void drawBackgroundRidge() {
   }
 }
 
-void drawForegroundRidge() {
-  //loop over the summit points to create the background
-  stroke(200, 100, 100);
-  for (int i = 0; i < summitPoints2.length; i++) {
-    line(i, summitPoints2[i], i, height);
-  }
-}
-
-void drawRidgeWave(int arrayNum, int randomLow, int randomHigh, int weightMax, int maxFade) {
+void drawRidgeWave(int randomLow, int randomHigh, int widthStart, int widthFinish, int weightMax) {
  
- for (int i = 0; i < width*2 - 1 ; i++) {
+
+  
+ for (int i = widthStart; i < widthFinish - 1 ; i++) {
    //set up ridgepoint values
-    float ridgePoint_x = i - width/2;
-    float ridgePoint_y = 0; 
-    switch(arrayNum) {
-      case 1: 
-        ridgePoint_y = summitPoints1[i];
-      break;
-      case 2: 
-        ridgePoint_y = summitPoints2[i];
-      break;
-    }
-    
+    float ridgePoint_x = i;
+    float ridgePoint_y = summitPoints1[i];
     float nextRidgePoint_x = ridgePoint_x;
     float nextRidgePoint_y = ridgePoint_y;
     
     // brownian ridge colouring
-    float ridgeRedColor = maxFade + random(100); 
+    float ridgeRedColor = 100 + random(155); 
     ridgeRedColor += random(-30,+30);
-    stroke(ridgeRedColor, maxFade, maxFade);
+    stroke(ridgeRedColor, 100, 100);
     strokeWeight(random(1, weightMax));
     
     //random line from top of point wiggling downwards
