@@ -1,7 +1,6 @@
-//Mars Picture 4
+//Mars Picture 1 //<>//
 
-int y1 = 80;
-float[] summitPoints1;
+int y2 = 0;
 float[] summitPoints2;
 
 void setup(){
@@ -10,62 +9,25 @@ smooth();
 background(225, 205, 205);
 noStroke();
   
-  summitPoints1 = new float[width];
-  summitPoints2 = new float[width];
+  summitPoints2 = new float[width*3];
+  drawRidgeWave(-45, 25, 14, 55);
   
-  createSummitPoints1Array();
-  //drawBackgroundRidge();
-  drawRidgeWave(-35, 25, 0, width, 4);
-  
-   //<>//
-  
-  //saveMe();
+  saveMe();
 }
 
-
-void createSummitPoints1Array() {
-  //Define the summit points in an array
-  for (int i = 0; i < width; i++) {
-    if (i % 5 == 0) {
-      y1 += random(-5.5, +5.5);
-    }
-    summitPoints1[i] = y1; 
-  }
-}
-
-void createSummitPoints2Array() {
-  //Define the summit points in an array
-  for (int i = 0; i < width; i++) {
-    if (i % 5 == 0) {
-      y1 += random(-5.5, +5.5);
-    }
-    summitPoints2[i] = y1; 
-  }
-}
-
-void drawBackgroundRidge() {
-  //loop over the summit points to create the background
-  stroke(255, 160, 160);
-  for (int i = 0; i < summitPoints1.length; i++) {
-    line(i, summitPoints1[i], i, height);
-  }
-}
-
-void drawRidgeWave(int randomLow, int randomHigh, int widthStart, int widthFinish, int weightMax) {
+void drawRidgeWave(int randomLow, int randomHigh, int weightMax, int maxFade) {
  
-
-  
- for (int i = widthStart; i < widthFinish - 1 ; i++) {
+ for (int i = 0; i < width*3 - 1 ; i++) {
    //set up ridgepoint values
     float ridgePoint_x = i;
-    float ridgePoint_y = summitPoints1[i];
+    float ridgePoint_y = 0;    
     float nextRidgePoint_x = ridgePoint_x;
     float nextRidgePoint_y = ridgePoint_y;
     
     // brownian ridge colouring
-    float ridgeRedColor = 100 + random(155); 
+    float ridgeRedColor = maxFade + random(100); 
     ridgeRedColor += random(-30,+30);
-    stroke(ridgeRedColor, 100, 100);
+    stroke(ridgeRedColor, maxFade, maxFade);
     strokeWeight(random(1, weightMax));
     
     //random line from top of point wiggling downwards
@@ -81,5 +43,5 @@ void drawRidgeWave(int randomLow, int randomHigh, int widthStart, int widthFinis
 }
 
 void saveMe() {
-  save("G4_01.png");
+  save("G1_01.png");
 }
