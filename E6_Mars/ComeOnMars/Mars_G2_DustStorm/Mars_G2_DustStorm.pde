@@ -1,4 +1,4 @@
-//Mars Picture 1 //<>//
+//Mars Picture 2
 
 int y2 = 0;
 float[] summitPoints2;
@@ -9,15 +9,15 @@ smooth();
 background(225, 205, 205);
 noStroke();
   
-  summitPoints2 = new float[width*3];
-  drawRidgeWave(-45, 25, 14, 55);
+  summitPoints2 = new float[width*4];
+  drawRidgeWave(-25, 55, 14, 45);
   
-  //saveMe();
+  saveMe();
 }
 
 void drawRidgeWave(int randomLow, int randomHigh, int weightMax, int maxFade) {
  
- for (int i = 0; i < width*3 - 1 ; i++) {
+ for (int i = 0 - width*2; i < width*2 - 1 ; i++) {
    //set up ridgepoint values
     float ridgePoint_x = i;
     float ridgePoint_y = 0;    
@@ -26,8 +26,8 @@ void drawRidgeWave(int randomLow, int randomHigh, int weightMax, int maxFade) {
     
     // brownian ridge colouring
     float ridgeRedColor = maxFade + random(100); 
-    ridgeRedColor += random(-30,+30);
-    stroke(ridgeRedColor, maxFade, maxFade);
+    ridgeRedColor += random(-20,+20);
+    stroke(ridgeRedColor/3*2, maxFade, maxFade/2);
     strokeWeight(random(1, weightMax));
     
     //random line from top of point wiggling downwards
@@ -43,5 +43,5 @@ void drawRidgeWave(int randomLow, int randomHigh, int weightMax, int maxFade) {
 }
 
 void saveMe() {
-  save("G1_01.png");
+  save("G2_01.png");
 }
