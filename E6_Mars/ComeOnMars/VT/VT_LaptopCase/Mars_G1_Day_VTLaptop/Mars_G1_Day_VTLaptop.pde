@@ -3,7 +3,7 @@
 int y2 = 0;
 
 void setup(){
-size(3500,3500);
+size(3508,2480);
 smooth();
 background(225, 205, 205);
 noStroke();
@@ -41,5 +41,5 @@ void drawRidgeWave(int randomLow, int randomHigh, int weightMax, int maxFade) {
 }
 
 void saveMe() {
-  save("G1_VTCush_01.png");
+  save("G1_VTLaptop_01.png");
 }

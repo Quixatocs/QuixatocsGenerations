@@ -3,12 +3,12 @@
 int y2 = 0;
 
 void setup(){
-size(3500,3500);
+size(4370,2917);
 smooth();
 background(225, 205, 205);
 noStroke();
   
-  drawRidgeWave(-45*5, 25*5, 14*5, 55);
+  drawRidgeWave(-45*7, 25*7, 14*7, 55);
   
   saveMe();
 }
@@ -31,7 +31,7 @@ void drawRidgeWave(int randomLow, int randomHigh, int weightMax, int maxFade) {
     //random line from top of point wiggling downwards
     while (ridgePoint_y < height) { 
      nextRidgePoint_x += random(randomLow, randomHigh);
-     nextRidgePoint_y += random(+20*5);
+     nextRidgePoint_y += random(+20*7);
      //draw the line
      line(ridgePoint_x, ridgePoint_y, nextRidgePoint_x, nextRidgePoint_y);
      ridgePoint_x = nextRidgePoint_x;
@@ -41,5 +41,5 @@ void drawRidgeWave(int randomLow, int randomHigh, int weightMax, int maxFade) {
 }
 
 void saveMe() {
-  save("G1_VTCush_01.png");
+  save("G1_VTA3_01.png");
 }
