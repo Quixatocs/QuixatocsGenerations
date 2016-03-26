@@ -2,16 +2,21 @@ float theta;
 
 void setup() {
   size(640, 640);
+  
+}
+
+void draw() {
   background(155);
   frameRate(30);
   stroke(255);
   // Let's pick an angle 0 to 90 degrees based on the mouse position
-  //float a = (mouseX / (float) width) * 720f;
-  float a = random(1) * 720f;
+  float a = (mouseX / (float) width) * 720f;
+  //float a = random(1) * 720f;
   // Convert it to radians
   theta = radians(a);
   // Start the tree from the bottom of the screen
-  translate(width/2,height/2);
+  translate(width/2, height/2);
+  //translate(random(width),random(height));
   // Draw a line 120 pixels
   //line(0,0,0,-160);
   
@@ -19,16 +24,12 @@ void setup() {
   //translate(0,-160);
   // Start the recursive branching!
   branch(160);
-}
-
-void draw() {
-  
 
 }
 
 void branch(float h) {
   // Each branch will be 2/3rds the size of the previous one
-  h *= 0.60;
+  h *= 0.80;
   
   // All recursive functions must have an exit condition!!!!
   // Here, ours is when the length of the branch is 2 pixels or less
