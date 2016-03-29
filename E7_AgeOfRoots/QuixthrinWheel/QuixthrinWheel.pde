@@ -24,8 +24,6 @@ void draw() {
   //translate(0,-160);
   // Start the recursive branching!
   branch(160);
-  
-  
 
 }
 
@@ -65,14 +63,8 @@ void branch(float h) {
   }
 }
 
-void mouseClicked() {
-  
-    saveMe();
-  
-}
-
 
 
 void saveMe() {
-  save("AgeOfRoots_03.png");
+  save("AgeOfRoots_01.png");
 }
